@@ -15,6 +15,8 @@ rule token = parse
     { PRINT }
 | ['0'-'9']+ as i
     { NUMBER (float_of_string i) }
+| ['0'-'9']*['.']['0'-'9']+ as i
+    { NUMBER (float_of_string i)}
 | eof
     { EOF }
 | _
