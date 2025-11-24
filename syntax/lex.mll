@@ -11,6 +11,26 @@ rule token = parse
 | '\n' { NEWLINE }
 | '+'
     { PLUS }
+| '-'
+    { MINUS }
+| '*'
+    { TIMES }
+| '^'
+    { EXP }
+| '/'
+    { DIV }
+| '('
+    { LPAREN }
+| ')'
+    { RPAREN }
+| "log"
+    { LOG }
+| "sin"
+    { SIN }
+| "cos"
+    { COS }
+| "tan"
+    { TAN }
 | "print"
     { PRINT }
 | ['0'-'9']+ as i
