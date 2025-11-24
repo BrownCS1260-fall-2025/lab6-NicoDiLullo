@@ -3,6 +3,17 @@
 %token <float> NUMBER
 %token PRINT NEWLINE
 %token PLUS
+%token MINUS
+%token TIMES
+%token DIV
+%token EXP
+%token LPAREN
+%token RPAREN
+%token COS
+%token SIN
+%token TAN
+%token LOG
+%token <string> VAR
 %token EOF
 
 %start <stmt list> main

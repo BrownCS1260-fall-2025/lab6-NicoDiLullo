@@ -39,6 +39,8 @@ rule token = parse
     { NUMBER (float_of_string i)}
 | ['0'-'9']*['.']['0'-'9']*['e']['0'-'9']+ as i
     { NUMBER (float_of_string i)}
+| ['a'-'z']['a'-'z''_''0'-'9']+ as i
+    { VAR i }
 | eof
     { EOF }
 | _
