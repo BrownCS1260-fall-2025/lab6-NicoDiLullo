@@ -13,6 +13,7 @@
 %token SIN
 %token TAN
 %token LOG
+%token <float> NEGATE
 %token <string> VAR
 %token EOF
 
@@ -31,10 +32,20 @@ main:
 stmt:
 | PRINT e = expr1
   { Print e }
+| NEGATE e1 = expr1
+  { Negate (e1) }
 
 expr1:
 | e1 = expr1 PLUS e2 = expr0
   { Plus (e1, e2) }
+| e1 = expr1 MINUS e2 = expr0
+  { Minus (e1, e2) }
+| e1 = expr1 TIMES e2 = expr0
+  { Times (e1, e2) }
+| e1 = expr1 EXP e2 = expr0
+  { Exp (e1, e2) }
+| e1 = expr1 DIV e2 = expr0
+  { Divide (e1, e2) }
 | e = expr0 { e }
 
 expr0:
