@@ -11,14 +11,16 @@ rule token = parse
 | '\n' { NEWLINE }
 | '+'
     { PLUS }
-| ['-']['0'-'9']+ as i
-    { NUMBER float_of_string i }
+| ['-']?['0'-'9']+ as i
+    { NUMBER (float_of_string i) }
 | '-'
     { MINUS }
 | '*'
     { TIMES }
 | '^'
     { EXP }
+| '='
+    { EQ }
 | '/'
     { DIV }
 | '('
