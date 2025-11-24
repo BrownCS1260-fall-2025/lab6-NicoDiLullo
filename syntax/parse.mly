@@ -15,6 +15,7 @@
 %token LOG
 %token <float> NEGATE
 %token <string> VAR
+%token PRINT
 %token EOF
 
 %start <stmt list> main
@@ -42,7 +43,7 @@ expr1:
   { Minus (e1, e2) }
 | e1 = expr1 TIMES e2 = expr0
   { Times (e1, e2) }
-| e1 = expr1 EXP e2 = expr0
+| e1 = expr0 EXP e2 = expr1
   { Exp (e1, e2) }
 | e1 = expr1 DIV e2 = expr0
   { Divide (e1, e2) }
